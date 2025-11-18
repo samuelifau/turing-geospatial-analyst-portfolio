@@ -14,6 +14,11 @@
 
 ---
 
+<p align="center">
+  <img width="641" height="641" alt="image" src="https://github.com/user-attachments/assets/7dee86b7-b1bf-4983-b045-85db00d51fc1" />
+</p>
+
+
 ## 📌 **Overview**
 This project generates a **Flood Risk Map** for **Denpasar, Bali**, using a complete geospatial pipeline:
 
@@ -156,3 +161,4 @@ Contains:
 It supports my application for **Geospatial RLHF / GeoAI roles**.
 
 </div>
+
