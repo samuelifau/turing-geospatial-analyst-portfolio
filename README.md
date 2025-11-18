@@ -84,7 +84,10 @@ Raw data located in:
 ## 🗺 **Output Preview**
 
 ### 🌀 **Final Flood Risk Map (PNG)**  
-![denpasar map](../../outputs/maps/denpasar_flood_risk_map.png)
+
+<p align="center">
+  <img width="641" height="641" alt="image" src="https://github.com/user-attachments/assets/7dee86b7-b1bf-4983-b045-85db00d51fc1" />
+</p>
 
 🔍 Hillshade + transparency → gives intuitive terrain context  
 🎨 4-Level discrete colorbar included (Low → Very High)  
@@ -161,4 +164,5 @@ Contains:
 It supports my application for **Geospatial RLHF / GeoAI roles**.
 
 </div>
+
 
