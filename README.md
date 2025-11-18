@@ -1,48 +1,158 @@
-# Geospatial Analyst Portfolio
+<div align="center">
 
-A comprehensive portfolio demonstrating geospatial analysis capabilities, spatial reasoning, and data visualization skills.
+# 🌊 **Flood Risk Analysis — Denpasar, Bali**
+### 🛰️ Geospatial • Remote Sensing • Python • AI Model Evaluation
 
-## Overview
+[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)]()
+[![Rasterio](https://img.shields.io/badge/Rasterio-GIS-green)]()
+[![Geopandas](https://img.shields.io/badge/Geopandas-Vector-orange)]()
+[![QGIS](https://img.shields.io/badge/QGIS-3.34-brightgreen?logo=qgis)]()
+[![Remote Sensing](https://img.shields.io/badge/Remote%20Sensing-SRTM-yellow)]()
+[![License](https://img.shields.io/badge/License-MIT-purple)]()
 
-This repository showcases various geospatial analysis projects and examples, including spatial data processing, geographic visualization, and location-based insights.
+</div>
 
-## Structure
+---
 
-- **data/** - Sample geospatial datasets
-- **notebooks/** - Jupyter notebooks with analysis workflows
-- **geospatial_reasoning_examples/** - Code examples demonstrating spatial reasoning
-- **outputs/** - Generated maps, visualizations, and reports
+## 📌 **Overview**
+This project generates a **Flood Risk Map** for **Denpasar, Bali**, using a complete geospatial pipeline:
 
-## Technologies
+- ✔ SRTM 30m DEM (USGS)  
+- ✔ OSM River Network (cleaned + converted)  
+- ✔ Python processing → Rasterio, Geopandas, Numpy  
+- ✔ Terrain modeling → elevation, slope, river distance  
+- ✔ Adaptive flood scoring (1–4)  
+- ✔ Vector polygon output (GPKG)  
+- ✔ Debug notebook with error-safe file operations  
 
-- Python (GeoPandas, Folium, Shapely, Rasterio)
-- QGIS
-- PostGIS
-- Spatial analysis and visualization
+> 🎯 **Designed for Geospatial RLHF / AI Evals and GIS Analyst roles.**
 
-## Getting Started
+---
 
-```bash
-# Create virtual environment
-python -m venv venv
+## 🗂 **Data Sources**
 
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Linux/Mac:
-source venv/bin/activate
+| Dataset | Source | Status |
+|--------|--------|--------|
+| 🌄 **DEM (SRTM 30m)** | USGS / Google Earth Engine | Preprocessed, clipped, UTM-corrected |
+| 🌊 **River Network** | OpenStreetMap | Cleaned, field-filtered, CRS-fixed |
+| 🗺 **Study Area** | Derived from DEM | Matches entire Denpasar region |
 
-# Install dependencies
-pip install -r requirements.txt
+Raw data located in:
 
-# Launch Jupyter
-jupyter notebook
-```
+---
 
-## Projects
+## 🧠 **Workflow Diagram**
 
-Examples include urban planning analysis, environmental monitoring, transportation routing, and demographic mapping.
+      DEM (SRTM)                 Rivers (OSM)
+           │                           │
+           ▼                           ▼
+    Clip & Reproject            Clean Fields
+           │                           │
+           ▼                           ▼
+       Elevation                 Rasterize Rivers
+           │                           │
+           ├──────────┬────────────────┘
+           ▼          ▼
+       Slope      Distance-to-River
+           │               │
+           └───────┬──────┘
+                   ▼
+       Adaptive Risk Scoring (1–4)
+                   │
+                   ▼
+  🗺️  Flood Risk Map + Vector Polygons
 
-## Contact
 
-For questions or collaboration opportunities, please reach out via GitHub.
+---
+
+## 🌈 **Risk Class Legend (1–4)**
+
+| Class | Level | Color |
+|-------|--------|--------|
+| **1** | 🟩 Low | `#2ecc71` |
+| **2** | 🟨 Moderate | `#f1c40f` |
+| **3** | 🟧 High | `#e67e22` |
+| **4** | 🟥 Very High | `#c0392b` |
+
+---
+
+## 🗺 **Output Preview**
+
+### 🌀 **Final Flood Risk Map (PNG)**  
+![denpasar map](../../outputs/maps/denpasar_flood_risk_map.png)
+
+🔍 Hillshade + transparency → gives intuitive terrain context  
+🎨 4-Level discrete colorbar included (Low → Very High)  
+
+---
+
+## 📦 **Generated Outputs**
+
+### 📁 Raster outputs (`data/processed/`)
+- `dem_clip.tif`
+- `dem_utm.tif`
+- `slope.tif`
+- `dist_to_river.tif`
+- `risk_index.tif`
+- `risk_class.tif`
+
+### 🗂 Vector outputs (`outputs/shapefiles/`)
+- `denpasar_flood_risk_zones.gpkg`  
+  ✔ Multipolygon per risk class (1–4)  
+  ✔ Ready for GIS apps (QGIS, ArcGIS, Kepler.gl)
+
+---
+
+## 📘 **Notebook**
+Main notebook (debug-friendly):
+
+
+Contains:
+- DEM processing  
+- River cleaning  
+- Raster math  
+- Polygonization  
+- Error-handling (safe_remove)  
+- Full reproducible pipeline  
+
+---
+
+## 🧪 **QA/QC Checks**
+
+| Check | Status |
+|-------|--------|
+| CRS validation | ✔ EPSG:4326 → UTM50S |
+| Nodata handling | ✔ Cleaned & enforced |
+| Slope sanity | ✔ 0–40° typical in Denpasar |
+| Distance distribution | ✔ Verified percentiles |
+| Unique classes | ✔ 1–4 only |
+| Vector topology | ✔ Valid polygons |
+
+---
+
+## 🎯 **Skills Demonstrated**
+
+- Geospatial reasoning & interpretation  
+- Remote sensing preprocessing  
+- Python raster/vector workflows  
+- Spatial classification  
+- Terrain analysis  
+- CRS & projection handling  
+- GIS QA/QC  
+- AI/Evals-style spatial consistency checking  
+
+---
+
+## 👤 **Author**
+**Samueli Windovado Fau**  
+🌐 GitHub: https://github.com/samuelifau  
+💼 LinkedIn: https://www.linkedin.com/in/samueli-fau  
+
+---
+
+<div align="center">
+
+### ⭐ If you find this project helpful, please star the repo!  
+It supports my application for **Geospatial RLHF / GeoAI roles**.
+
+</div>
